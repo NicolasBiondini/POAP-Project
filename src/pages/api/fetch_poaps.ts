@@ -11,6 +11,14 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  let data: poap[] = await getPoaps("nbiondini.eth");
+  let value;
+
+  if (Array.isArray(req.query.value)) {
+    value = req.query.value[0];
+  } else {
+    value = req.query.value || "";
+  }
+
+  let data: poap[] = await getPoaps(value);
   res.status(200).json({ poaps: data });
 }

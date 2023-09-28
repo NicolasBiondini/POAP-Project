@@ -4,17 +4,15 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { getPoaps } from "@/lib/getPoaps";
 import { useState } from "react";
+import Searcher from "@/components/Searcher/Searcher";
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [poaps, setPoaps] = useState<poap[]>([]);
-
-  const handleSearch = async () => {
-    const response = await fetch("http://localhost:3000/api/fetch_poaps");
-    const data: { poaps: poap[] } = await response.json();
-    setPoaps(data.poaps);
-  };
 
   return (
     <>
@@ -26,8 +24,8 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <div className={styles.description}>
-          <button onClick={handleSearch}>Click me</button>
-
+          <ToastContainer />
+          <Searcher setPoaps={setPoaps} />
           {poaps.length > 0 && (
             <div>
               {poaps.map((poap) => {
