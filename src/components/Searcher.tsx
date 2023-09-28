@@ -10,7 +10,7 @@ type Props = {
 const regex =
   /^(?:[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|[a-zA-Z0-9-]+\.eth|0x[a-fA-F0-9]{40})$/;
 
-const final_url = process.env.POAP_API_KEY || "";
+const final_url = process.env.URL_BACKEND || "";
 
 function Searcher({ setPoaps, amount }: Props) {
   const [inputValue, setInputValue] = useState<{
