@@ -23,6 +23,9 @@ export default async function handler(
   res.status(200).json({ poaps: data });
 }
 
-export const config = {
-  type: "experimental-background",
-};
+// I search and this is how to make it work
+// but in netflify it's not included on the free plan
+
+//export const config = {
+//  type: "experimental-background",
+//};
