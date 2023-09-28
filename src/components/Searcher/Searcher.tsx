@@ -9,26 +9,35 @@ const regex =
   /^(?:[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|[a-zA-Z0-9-]+\.eth|0x[a-fA-F0-9]{40})$/;
 
 function Searcher({ setPoaps }: Props) {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState<{
+    prev_value: string;
+    value: string;
+  }>({ prev_value: "", value: "" });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
+    setInputValue({ ...inputValue, value: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // Prevent re-submit
+    if (inputValue.value == inputValue.prev_value) {
+      return;
+    }
+
     // Check regex
     // - .eth (ENS Domains),
     // - Valid emails
     // - ETH Accounts (0x and 40 characters)
-    const isMatch = regex.test(inputValue);
+    const isMatch = regex.test(inputValue.value);
 
     if (isMatch) {
       const response = await fetch(
-        `http://localhost:3000/api/fetch_poaps?value=${inputValue}`
+        `http://localhost:3000/api/fetch_poaps?value=${inputValue.value}`
       );
       const data: { poaps: poap[] } = await response.json();
+      setInputValue({ ...inputValue, prev_value: inputValue.value });
       setPoaps(data.poaps);
     } else {
       toast.error("Invalid account! Try again.", {
@@ -40,14 +49,14 @@ function Searcher({ setPoaps }: Props) {
   const handleClear = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    setInputValue("");
+    setInputValue({ prev_value: "", value: "" });
     setPoaps([]);
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleChange} value={inputValue} />
+        <input type="text" onChange={handleChange} value={inputValue.value} />
         <button type="submit">Search</button>
       </form>
       <button onClick={handleClear}>Clear All</button>
