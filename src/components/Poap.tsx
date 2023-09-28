@@ -16,7 +16,7 @@ function Poap({ name, image_url, id_token, id }: Props) {
       target="_blank"
     >
       <span className={styles.imageContainer}>
-        <Image fill src={image_url} alt={name} />
+        <Image fill src={image_url} alt={name} sizes={"4rem 4rem"} />
       </span>
       <p className={styles.text}>{name}</p>
       <p className={styles.id}>N° {id_token}</p>

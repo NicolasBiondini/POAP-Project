@@ -10,6 +10,8 @@ type Props = {
 const regex =
   /^(?:[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|[a-zA-Z0-9-]+\.eth|0x[a-fA-F0-9]{40})$/;
 
+const final_url = process.env.POAP_API_KEY || "";
+
 function Searcher({ setPoaps, amount }: Props) {
   const [inputValue, setInputValue] = useState<{
     prev_value: string;
@@ -36,9 +38,7 @@ function Searcher({ setPoaps, amount }: Props) {
 
     if (isMatch) {
       const response = await toast.promise(
-        fetch(
-          `http://localhost:3000/api/fetch_poaps?value=${inputValue.value}`
-        ),
+        fetch(`${final_url}api/fetch_poaps?value=${inputValue.value}`),
         {
           pending: "Searching your POAPs 🔎",
           success: "We found them! 🎉",

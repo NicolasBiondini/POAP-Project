@@ -4,9 +4,17 @@
 
 **Introducing POAP Scan:** Explore your unique POAP token collection effortlessly with our Next.js-powered platform. Whether you enter your ENS, ETH Address, or email, our user-friendly tool provides a visually appealing showcase of your event mementos, securely stored on the blockchain for authenticity assurance. Unlock the memories of your attended events today!
 
+## Try the app
+
+You can check the APP following [this link](https://main--helpful-bienenstitch-10f321.netlify.app/)!
+
+or
+
 Clone the project
 
     git clone git@github.com:NicolasBiondini/POAP-Project.git
+
+    cd POAP-Project
 
 Install dependencies
 
@@ -15,6 +23,8 @@ Install dependencies
 Run the project
 
     npm run dev
+
+## Images
 
 ![Image-one](./assets/one.png)
 ![Image-two](./assets/two.png)
