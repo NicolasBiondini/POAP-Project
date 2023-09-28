@@ -1,9 +1,7 @@
-import styles from "@/styles/Footer.module.css";
 import Image from "next/image";
+import styles from "@/styles/Footer.module.css";
 
-type Props = {};
-
-function Footer({}: Props) {
+function Footer() {
   return (
     <div className={styles.container}>
       <Image

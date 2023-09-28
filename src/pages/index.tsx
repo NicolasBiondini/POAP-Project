@@ -1,13 +1,12 @@
-import Head from "next/head";
-import styles from "@/styles/Home.module.css";
 import { useState } from "react";
+import Head from "next/head";
 import Searcher from "@/components/Searcher";
-
-import "react-toastify/dist/ReactToastify.css";
-
 import Poap from "@/components/Poap";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+import "react-toastify/dist/ReactToastify.css";
+import styles from "@/styles/Home.module.css";
 
 export default function Home() {
   const [poaps, setPoaps] = useState<poap[]>([]);

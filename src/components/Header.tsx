@@ -1,9 +1,7 @@
-import styles from "@/styles/Header.module.css";
 import Image from "next/image";
+import styles from "@/styles/Header.module.css";
 
-type Props = {};
-
-function Header({}: Props) {
+function Header() {
   return (
     <div className={styles.header}>
       <Image
