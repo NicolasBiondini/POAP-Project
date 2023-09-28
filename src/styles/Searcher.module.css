@@ -109,3 +109,9 @@
 .button:hover {
   background-color: #6534ff;
 }
+
+.noPoaps {
+  color: #4b4b4b;
+  font-weight: 400;
+  font-size: 24px;
+}

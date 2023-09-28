@@ -4,12 +4,13 @@ import styles from "@/styles/Searcher.module.css";
 
 type Props = {
   setPoaps: (value: SetStateAction<poap[]>) => void;
+  amount: number;
 };
 
 const regex =
   /^(?:[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|[a-zA-Z0-9-]+\.eth|0x[a-fA-F0-9]{40})$/;
 
-function Searcher({ setPoaps }: Props) {
+function Searcher({ setPoaps, amount }: Props) {
   const [inputValue, setInputValue] = useState<{
     prev_value: string;
     value: string;
@@ -98,6 +99,9 @@ function Searcher({ setPoaps }: Props) {
         <button className={styles.button} onClick={handleClear}>
           Clear All
         </button>
+      )}
+      {inputValue.prev_value !== "" && amount == 0 && (
+        <p className={styles.noPoaps}>Sorry, you {"don't"} have any POAP 😔</p>
       )}
     </div>
   );
