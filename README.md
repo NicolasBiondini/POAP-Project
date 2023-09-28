@@ -6,7 +6,7 @@
 
 ## Try the app
 
-You can check the APP following [this link](https://main--helpful-bienenstitch-10f321.netlify.app/)!
+You can check the APP following [this link](https://poap-project.vercel.app/)!
 
 or
 
