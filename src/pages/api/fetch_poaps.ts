@@ -22,3 +22,7 @@ export default async function handler(
   let data: poap[] = await getPoaps(value);
   res.status(200).json({ poaps: data });
 }
+
+export const config = {
+  type: "experimental-background",
+};
