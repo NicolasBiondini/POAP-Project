@@ -1,0 +1,48 @@
+.container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  padding-top: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 15px;
+  border: 2px solid transparent;
+  transition: all 120ms ease-in-out;
+}
+
+.container:hover {
+  border: 2px solid #6534ff;
+  background-color: #ebe8f7;
+}
+
+.imageContainer {
+  position: absolute;
+  top: 10px;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.imageContainer img {
+  object-fit: cover;
+}
+
+.text {
+  max-width: fit-content;
+  max-height: 60px;
+  color: #6534ff;
+  font-weight: 700;
+  overflow: auto;
+  text-overflow: ellipsis;
+}
+
+.id {
+  color: #4b4b4b;
+}
